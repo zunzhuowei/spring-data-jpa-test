@@ -2,12 +2,11 @@ package org.keega.spring.data.jpa.service;
 
 import org.keega.spring.data.jpa.dao.IUserDao;
 import org.keega.spring.data.jpa.model.User;
-import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.inject.Inject;
 import java.util.List;
 
