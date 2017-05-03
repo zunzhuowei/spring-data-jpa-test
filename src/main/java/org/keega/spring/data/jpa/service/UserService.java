@@ -17,7 +17,6 @@ import java.util.List;
  * |Editor|File and Code Templates|Includes|File Header
  */
 @Service("userService")
-@Transactional(readOnly = true)
 public class UserService implements IUserService {
 
     @Inject
