@@ -122,56 +122,34 @@
     </aop:config>-->
 
 
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-        <constructor-arg name="configuration" ref="hikariConfiguration"/>
-    </bean>
-
-    <bean id="hikariConfiguration" class="com.zaxxer.hikari.HikariConfig">
-        <property name="jdbcUrl" value="${db.jdbcUrl}"/>
-        <property name="password" value="${db.password}"/>
-        <property name="username" value="${db.user}"/>
-        <!-- 无需指定，除非系统无法自动识别 -->
-        <property name="dataSourceClassName" value="${db.dataSourceClassName}"/>
-        <property name="initializationFailFast" value="false"/>
-        <property name="connectionTestQuery" value="select 1"/>
-        <property name="connectionTimeout" value="90000"/>
-        <property name="poolName" value="proxool"/>
-        <property name="maximumPoolSize" value="150"/>
-        <property name="minimumIdle" value="5"/>
-        <property name="idleTimeout" value="60000"/>
-        <property name="maxLifetime" value="90000"/>
-        <property name="autoCommit" value="true"/>
-        <property name="allowPoolSuspension" value="true"/>
-        <property name="validationTimeout" value="60000"/>
-    </bean>
 
 
-<!--
-    &lt;!&ndash; 数据源配置,使用应用内的DBCP数据库连接池 &ndash;&gt;
+
+    <!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-        &lt;!&ndash;property name="driverClassName" value="${db.driverClass}"/&ndash;&gt;
+        <property name="driverClassName" value="${db.driverClass}"/>
         <property name="url" value="${db.jdbcUrl}"/>
         <property name="username" value="${db.user}"/>
         <property name="password" value="${db.password}"/>
 
-        &lt;!&ndash; 配置初始化大小、最小、最大 &ndash;&gt;
+        <!-- 配置初始化大小、最小、最大 -->
         <property name="initialSize" value="${db.initialSize}"/>
         <property name="minIdle" value="${db.minIdle}"/>
         <property name="maxActive" value="${db.maxActive}"/>
-        &lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt;
+        <!-- 配置获取连接等待超时的时间 -->
         <property name="maxWait" value="${db.maxWait}"/>
-        &lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt;
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
         <property name="timeBetweenEvictionRunsMillis" value="${db.timeBetweenEvictionRunsMillis}"/>
-        &lt;!&ndash; 配置一个连接在池中最小生存的时间，单位是毫秒 &ndash;&gt;
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
         <property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}"/>
 
         <property name="validationQuery" value="SELECT 'x' from dual"/>
         <property name="testWhileIdle" value="true"/>
         <property name="testOnBorrow" value="false"/>
         <property name="testOnReturn" value="false"/>
-        &lt;!&ndash; 打开PSCache，并且指定每个连接上PSCache的大小 &ndash;&gt;
-        &lt;!&ndash; <property name="poolPreparedStatements" value="${db.poolPreparedStatements}" />
-         <property name="maxPoolPreparedStatementPerConnectionSize" value="${db.maxPoolPreparedStatementPerConnectionSize}" />&ndash;&gt;
-    </bean>-->
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <!-- <property name="poolPreparedStatements" value="${db.poolPreparedStatements}" />
+         <property name="maxPoolPreparedStatementPerConnectionSize" value="${db.maxPoolPreparedStatementPerConnectionSize}" />-->
+    </bean>
 
 </beans>

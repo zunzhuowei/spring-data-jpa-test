@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="spring-data-jpa-test" />
+        <module name="spring-data-jpa" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-data-jpa-test" target="1.7" />
+      <module name="spring-data-jpa" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

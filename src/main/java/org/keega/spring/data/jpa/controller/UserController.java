@@ -1,5 +1,6 @@
 package org.keega.spring.data.jpa.controller;
 
+import org.keega.spring.data.jpa.model.User;
 import org.keega.spring.data.jpa.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,9 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String init(Model model) {
-        model.addAttribute("user", userService.findOneUser((long) 19));
+        User user = userService.findOneUser((long) 61);
+        System.out.println("user ================================================== " + user);
+        model.addAttribute("user", userService.findOneUser((long) 61));
         return "/user/init";
     }
 
