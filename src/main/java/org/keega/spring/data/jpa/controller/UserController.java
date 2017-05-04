@@ -25,7 +25,7 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String init(Model model) {
         User user = userService.findOneUser((long) 61);
-        System.out.println("user ================================================== " + user);
+        System.out.println("user111================================================== " + user);
         model.addAttribute("user", userService.findOneUser((long) 61));
         return "/user/init";
     }
